@@ -1,5 +1,5 @@
 /*
- * Copyright 2009-2010 the original author or authors.
+ * Copyright 2009-2012 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the 'License');
  * you may not use this file except in compliance with the License.
@@ -18,19 +18,52 @@
  * @author Andres Almiray
  */
 class WorldwindGriffonPlugin {
-    def version = 0.4
-    def dependsOn = ['jogl-compat': 0.1]
-    def toolkits = ['swing']
-    def griffonVersion = '0.9 > *'
-    def license = 'Apache Software License 2.0'
+    // the plugin version
+    String version = '0.5'
+    // the version or versions of Griffon the plugin is designed for
+    String griffonVersion = '0.9.5 > *'
+    // the other plugins this plugin depends on
+    Map dependsOn = ['jogl-compat': '0.2']
+    // resources that are included in plugin packaging
+    List pluginIncludes = []
+    // the plugin license
+    String license = 'Apache Software License 2.0'
+    // Toolkit compatibility. No value means compatible with all
+    // Valid values are: swing, javafx, swt, pivot, gtk
+    List toolkits = ['swing']
+    // Platform compatibility. No value means compatible with all
+    // Valid values are:
+    // linux, linux64, windows, windows64, macosx, macosx64, solaris
+    List platforms = ['linux', 'macosx', 'windows']
+    // URL where documentation can be found
+    String documentation = ''
+    // URL where source can be found
+    String source = 'https://github.com/griffon/griffon-jogl-compat-plugin'
 
-    def author = 'Andres Almiray'
-    def authorEmail = 'aalmiray@users.sourceforge.net'
-    def title = 'NASA WolrdWind (3D Maps)'
-    def description = '''
-NASA WorldWind (3D Maps)
+    List authors = [
+        [
+            name: 'Andres Almiray',
+            email: 'aalmiray@yahoo.com'
+        ]
+    ]
+    String title = "Embedded 3D Maps"
+    String description = '''
+Embeds a 3D world display provided by [NASA's WorldWind][1] project.
+
+Usage
+-----
+
+The following nodes will become available on a View script upon installing this plugin
+
+| *Node*    | *Type*                                       |
+| --------- | -------------------------------------------- |
+| worldwind | `gov.nasa.worldwind.awt.WorldWindowGLCanvas` |
+
+### Example
+
+A trivial example can be found at [https://github.com/aalmiray/griffon_sample_apps/tree/master/3d/wordlwind][2].
+
+[1]: http://worldwind.arc.nasa.gov/java/
+[2]: https://github.com/aalmiray/griffon_sample_apps/tree/master/3d/wordlwind
 '''
-
-    // URL to the plugin's documentation
-    def documentation = 'http://griffon.codehaus.org/Worldwind+Plugin'
 }

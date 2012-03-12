@@ -2,11 +2,9 @@ griffon.project.dependency.resolution = {
     inherits("global")
     log "warn"
     repositories {
-        griffonPlugins()
         griffonHome()
-        griffonCentral()
-
-        flatDir name: 'worldwindPluginLib', dirs: 'lib'
+        String basePath = pluginDirPath? "${pluginDirPath}/" : ''
+        flatDir name: "worldwindLibDir", dirs: ["${basePath}lib"]
     }
     dependencies {
         compile 'gov.nasa:worldwind:0.6.680.14215'
@@ -21,5 +19,16 @@ griffon {
     }
 }
 
-griffon.jars.destDir='target/addon'
-griffon.plugin.pack.additional.sources = ['src/gdsl']
+log4j = {
+    // Example of changing the log pattern for the default console
+    // appender:
+    appenders {
+        console name: 'stdout', layout: pattern(conversionPattern: '%d [%t] %-5p %c - %m%n')
+    }
+
+    error 'org.codehaus.griffon',
+          'org.springframework',
+          'org.apache.karaf',
+          'groovyx.net'
+    warn  'griffon'
+}
