@@ -38,7 +38,7 @@ class WorldwindGriffonPlugin {
     // URL where documentation can be found
     String documentation = ''
     // URL where source can be found
-    String source = 'https://github.com/griffon/griffon-jogl-compat-plugin'
+    String source = 'https://github.com/griffon/griffon-worldwind-plugin'
 
     List authors = [
         [
