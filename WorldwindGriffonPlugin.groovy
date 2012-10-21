@@ -19,11 +19,11 @@
  */
 class WorldwindGriffonPlugin {
     // the plugin version
-    String version = '0.5'
+    String version = '1.0.0'
     // the version or versions of Griffon the plugin is designed for
-    String griffonVersion = '0.9.5 > *'
+    String griffonVersion = '1.0.0 > *'
     // the other plugins this plugin depends on
-    Map dependsOn = ['jogl-compat': '0.2']
+    Map dependsOn = ['jogl-compat': '1.0.0']
     // resources that are included in plugin packaging
     List pluginIncludes = []
     // the plugin license
