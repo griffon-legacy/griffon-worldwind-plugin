@@ -7,7 +7,7 @@ griffon.project.dependency.resolution = {
         flatDir name: "worldwindLibDir", dirs: ["${basePath}lib"]
     }
     dependencies {
-        compile 'gov.nasa:worldwind:1.4.0'
+        compile 'gov.nasa:worldwind:1.5.0'
     }
 }
 
